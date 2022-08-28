@@ -1,30 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class StateCondition : BaseText
+public class StateCondition : StateText
 {
 
     public Parameter Parameter;
 
     public float min;
     public float max;
-
-    public State State;
-
+ 
     public override string GetText()
     {
-        
 
-        if(!State.Values.ContainsKey(Parameter.Name))
+        ParameterResult pr = State.Values.FirstOrDefault(x => x.Key == Parameter.Id);
+        if (pr == null)
         {
-            
-            State.Values[Parameter.Name] = (float.Parse(Parameter.Value) + Random.Range(1, 20)).ToString();
+            pr = new ParameterResult { Key = Parameter.Id, Value = (float.Parse(Parameter.Value) + Random.Range(1, 20)).ToString() };
+            State.Values.Add(pr);
          }
 
-        var param = State.Values[Parameter.Name];
-
-        var value = float.Parse(param);
+     
+        var value = float.Parse(pr.Value);
 
         if (min <= value && value <= max)
 

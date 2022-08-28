@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{86561534-9E34-BEB7-AD81-CCA44D4B5C67}</ProjectGuid>
+    <ProjectGuid>{AC7FDA13-7D15-B8C0-2BE1-18518F810DA4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\Game\Player\Team.cs" />
     <Compile Include="Assets\Scripts\Game\Actions\ActionSubstract.cs" />
     <Compile Include="Assets\Scripts\InventoryState.cs" />
+    <Compile Include="Assets\Scripts\Controllers\TimeController.cs" />
     <Compile Include="Assets\Scripts\Game\Parameters\ParameterAction.cs" />
     <Compile Include="Assets\Scripts\UI\ParameterOption.cs" />
     <Compile Include="Assets\Scripts\Game\Player\Person.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Assets\Scripts\UI\SaveData.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
     <Compile Include="Assets\Scripts\Game\SaveData\WorkflowData.cs" />
+    <Compile Include="Assets\PlayerParameterOption.cs" />
     <Compile Include="Assets\Scripts\Game\Parameters\ParameterContainer.cs" />
     <Compile Include="Assets\Scripts\Workflow\Transition.cs" />
     <Compile Include="Assets\Scripts\BaseGameObject.cs" />
@@ -101,8 +103,8 @@
     <Compile Include="Assets\Scripts\Scene.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
-    <Compile Include="Assets\PlayerParameterOption.cs" />
-    <Compile Include="Assets\Scripts\Controllers\TimeController.cs" />
+    <Compile Include="Assets\Scripts\Workflow\StateText.cs" />
+    <Compile Include="Assets\Scripts\Workflow\TransitionCondition.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

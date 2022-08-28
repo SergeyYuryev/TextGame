@@ -25,7 +25,7 @@ public class Transition : GameMonoBehavior
     public bool IsShow;
     public bool ShowOnce;
 
-  
+    TransitionCondition[] TransitionConditions;
 
     public bool IsAllow()
     {
@@ -44,7 +44,9 @@ public class Transition : GameMonoBehavior
         return true;
     }
 
-    public virtual  void Transit() {
+    public virtual  void Transit()
+    {
+       
         var actions = GetComponents<BaseAction>();
 
 
@@ -56,12 +58,28 @@ public class Transition : GameMonoBehavior
             }
         }
         IsShow = true;
-        Nextstate.Entry = this;
-        scene.CurretWorkflow.SetState(Nextstate);
-        Nextstate.InitState(ParentState);
         scene.TimeController.addTime(SpendMinutes);
+        TransitionConditions = GetComponents<TransitionCondition>();
+        foreach(var tc in TransitionConditions) 
+        {
+            tc.Parent = this;
+            if (tc.Check())
+            { 
+                GoToNextState(tc.NextState);
+                return;
+            }
+        }
+        GoToNextState(Nextstate);
+
+        ParentState.Exit();
     }
 
-   
+    private void GoToNextState(State nextState)
+    {
+        nextState.Entry = this;
+        scene.CurretWorkflow.SetState(nextState);
+        nextState.InitState(ParentState);
+    }
+
 
 }

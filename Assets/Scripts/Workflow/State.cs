@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,6 +6,13 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Serialization;
 
+
+[Serializable]
+public class ParameterResult
+{
+    public string Key;
+    public string Value;
+}
 public class State : BaseText
 {
     public Transition Entry;
@@ -12,16 +20,21 @@ public class State : BaseText
     public StateAction[] StartActions;
     public State PreviousState;
 
-    public StateCondition[] Conditions;
-    public Dictionary<string, string> Values;
+    public StateText[] Conditions;
+    public List<ParameterResult> Values;
 
     public string Title; 
     public Transition[] Transitions;
 
     private void Start()
     {
-        Conditions = GetComponentsInChildren<StateCondition>();
-        Values = new Dictionary<string, string>();
+    
+    }
+
+    private void init()
+    {
+        Conditions = GetComponentsInChildren<StateText>();
+        Values = new List<ParameterResult>();
         foreach (var condition in Conditions)
         {
             condition.State = this;
@@ -34,6 +47,7 @@ public class State : BaseText
 
     public override string GetText()
     {
+        init();
         var result = new StringBuilder();
 
         result.AppendLine(base.GetText());
@@ -52,11 +66,15 @@ public class State : BaseText
         return result.ToString();
     }
 
-   
+    internal void Exit()
+    {
+        Values = new List<ParameterResult>();
+    }
 
     public virtual void InitState(State prvious)
     {
         PreviousState = prvious;
+       
     }
 
     public virtual Transition[] GetTransitions()
