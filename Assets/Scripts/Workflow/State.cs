@@ -31,7 +31,7 @@ public class State : BaseText
     
     }
 
-    private void init()
+    protected virtual void init()
     {
         Conditions = GetComponentsInChildren<StateText>();
         Values = new List<ParameterResult>();

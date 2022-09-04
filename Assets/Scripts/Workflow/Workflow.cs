@@ -1,12 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Workflow : MonoBehaviour, IWorkflow
+public class Workflow : GameMonoBehavior, IWorkflow
 
 {
     public string Id;
-    public UIController Controller;
+ 
     public State State;
 
     public Transition[] DefaultTransitions;
@@ -39,10 +40,12 @@ public class Workflow : MonoBehaviour, IWorkflow
         return State;
     }
 
+   
+
     public void SetState(State state)
     {
         State = state;
         state.StartAction();
-        Controller.InitState(State);
+        scene.Controller.InitState(State);
     }
 }

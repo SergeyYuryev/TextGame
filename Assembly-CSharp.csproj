@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Game\Player\Team.cs" />
     <Compile Include="Assets\Scripts\Game\Actions\ActionSubstract.cs" />
+    <Compile Include="Assets\Scripts\Workflow\TransitionCondition.cs" />
     <Compile Include="Assets\Scripts\InventoryState.cs" />
     <Compile Include="Assets\Scripts\Controllers\TimeController.cs" />
     <Compile Include="Assets\Scripts\Game\Parameters\ParameterAction.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Assets\Scripts\Game\Parameters\Parameter.cs" />
     <Compile Include="Assets\Scripts\Game\Actions\ActionSet.cs" />
     <Compile Include="Assets\Scripts\Workflow\IWorkflow.cs" />
+    <Compile Include="Assets\Scripts\Workflow\StateText.cs" />
     <Compile Include="Assets\Scripts\Workflow\WorkflowTransition.cs" />
     <Compile Include="Assets\Scripts\Game\Player\Statement.cs" />
     <Compile Include="Assets\Scripts\Game\SaveData\GameData.cs" />
@@ -103,8 +105,12 @@
     <Compile Include="Assets\Scripts\Scene.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
-    <Compile Include="Assets\Scripts\Workflow\StateText.cs" />
-    <Compile Include="Assets\Scripts\Workflow\TransitionCondition.cs" />
+    <Compile Include="Assets\Scripts\Fight\FightWorkFlow.cs" />
+    <Compile Include="Assets\Scripts\Fight\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Fight\FightAction.cs" />
+    <Compile Include="Assets\Scripts\Fight\Fighter.cs" />
+    <Compile Include="Assets\Scripts\Fight\FightPhase.cs" />
+    <Compile Include="Assets\Scripts\Fight\FightState.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

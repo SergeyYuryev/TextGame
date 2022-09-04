@@ -69,9 +69,11 @@ public class Transition : GameMonoBehavior
                 return;
             }
         }
+
         GoToNextState(Nextstate);
 
-        ParentState.Exit();
+        if(ParentState != null)
+            ParentState.Exit();
     }
 
     private void GoToNextState(State nextState)
