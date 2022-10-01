@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class ConditionCheck : BaseCondition
 {
-
+    public float D = 20f;
     public string MoreThan;
     public string FinalValue;
     public override bool Check()
     {
       
-            var random = +Random.Range(1, 20);
+            var random = (int)Random.Range(1, D);
             var check = float.Parse(Parameter.Value) + random;
             var complexity = float.Parse(MoreThan);
 
-            FinalValue = random.ToString();
+            FinalValue = check.ToString();
 
             return check >= complexity;
       

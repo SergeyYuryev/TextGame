@@ -8,11 +8,11 @@ public class FightPhase
 {
     public List<FightAction> Actions;
 
-    public void AddAction(FightAction action)
+    public void AddAction(params FightAction[] actions)
     {
         if (Actions == null) Actions = new List<FightAction>();
 
-        Actions.Add(action);
+        Actions.AddRange(actions);
     }
 
     public void ClearActions()

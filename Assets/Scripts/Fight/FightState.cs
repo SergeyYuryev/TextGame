@@ -5,9 +5,8 @@ using UnityEngine;
 public class FightState : State
 {
     public FightWorkFlow WorkFlow;
-    public Fighter Owner;
-    public Fighter Enemy;
-    public Action Action;
+    public FightAction FightAction;
+
     public Weapon Weapon;
     private void Start()
     {
@@ -17,15 +16,13 @@ public class FightState : State
     {
         WorkFlow.BeginNewPhase();
                
-        var action = new FightAction {
-            Owner = Owner,
-            Enemy = Enemy,
-            Action = Action,
-            Weapon = Weapon,
-        };
-        WorkFlow.AddAction(action);
-        WorkFlow.PreparePhase();
+      
+       
+        WorkFlow.AddActions(FightAction);
+       WorkFlow.PreparePhase();
         WorkFlow.EndPhase();
+
+        Text = WorkFlow.FightLog.ToString();
         base.init();
     }
 }

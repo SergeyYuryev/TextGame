@@ -85,7 +85,17 @@ public class State : BaseText
             result.AddRange(Transitions);
         }
 
-        result.AddRange(GetComponentsInChildren<Transition>());
+        foreach (Transform trans in transform)
+        {
+            var transition = trans.GetComponent<Transition>();
+
+            if(transition != null)
+            {
+                result.Add(transition);
+            }
+        }
+
+        
 
         return result.
             Where(x =>x != null && x.IsAllow())

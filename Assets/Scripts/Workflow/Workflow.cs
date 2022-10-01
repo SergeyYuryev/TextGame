@@ -48,4 +48,8 @@ public class Workflow : GameMonoBehavior, IWorkflow
         state.StartAction();
         scene.Controller.InitState(State);
     }
+    public virtual void InitWorkFlow()
+    {
+       
+    }
 }

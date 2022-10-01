@@ -24,7 +24,7 @@ public class WorkflowTransition : Transition
         var currentstate = NextWorkflow.GetEntryPoint();
         currentstate.Entry = this;
 
-
+        scene.CurretWorkflow.InitWorkFlow();
 
         scene.CurretWorkflow.SetState(currentstate);
 

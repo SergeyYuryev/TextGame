@@ -41,7 +41,7 @@ public class SceneController : MonoBehaviour
 
                 foreach(var param in Parameters.Parameters)
                 {
-                    param.Value = PlayerPrefs.GetString(param.Id);
+                    param.Value = (int.Parse(PlayerPrefs.GetString(param.Id)) + 5).ToString();
                 }
             }
             else
